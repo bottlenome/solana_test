@@ -1,0 +1,24 @@
+cargo-features = ["edition2021"]
+
+[package]
+name = "solana_test_binary_option"
+version = "0.1.0"
+authors = ["bottlenome <bottlenome@gmail.com>"]
+edition = "2021"
+
+[features]
+no-entrypoint = []
+
+[dependencies]
+solana-program = "1.8.2"
+borsh = "0.9.1"
+thiserror = "1.0"
+# git clone https://github.com/smartcontractkit/chainlink-solana.git
+chainlink = { path = "./ext/chainlink-solana", package = "chainlink-solana", features = ["no-entrypoint"] }
+
+[dev-dependencies]
+solana-program-test = "1.8.2"
+solana-sdk = "1.8.2"
+
+[lib]
+crate-type = ["cdylib", "lib"]
